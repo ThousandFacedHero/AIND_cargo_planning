@@ -68,9 +68,7 @@ class AirCargoProblem(Problem):
                     for p in self.planes:
                         precond_pos = [expr("At({}, {})".format(c, a)),
                                        expr("At({}, {})".format(p, a)),
-                                       ]# expr("Cargo({})".format(c)),
-                                       # expr("Plane({})".format(p)),
-                                       # expr("Airport({})".format(a))]
+                                       ]
                         precond_neg = []
                         effect_add = [expr("In({}, {})".format(c, p))]
                         effect_rem = [expr("At({}, {})".format(c, a))]
@@ -94,9 +92,7 @@ class AirCargoProblem(Problem):
                     for p in self.planes:
                         precond_pos = [expr("In({}, {})".format(c, p)),
                                        expr("At({}, {})".format(p, a)),
-                                       ]# expr("Cargo({})".format(c)),
-                                       # expr("Plane({})".format(p)),
-                                       # expr("Airport({})".format(a))]
+                                       ]
                         precond_neg = []
                         effect_add = [expr("At({}, {})".format(c, a))]
                         effect_rem = [expr("In({}, {})".format(c, p))]
@@ -119,9 +115,7 @@ class AirCargoProblem(Problem):
                     if fr != to:
                         for p in self.planes:
                             precond_pos = [expr("At({}, {})".format(p, fr)),
-                                           ]# expr("Plane({})".format(p)),
-                                           # expr("Airport({})".format(p, fr)),
-                                           # expr("Airport({})".format(p, to))]
+                                           ]
                             precond_neg = []
                             effect_add = [expr("At({}, {})".format(p, to))]
                             effect_rem = [expr("At({}, {})".format(p, fr))]
@@ -227,6 +221,7 @@ class AirCargoProblem(Problem):
         executed.
         """
         # TODO implement (see Russell-Norvig Ed-3 10.2.3  or Russell-Norvig Ed-2 11.2)
+        # set all Node's action preconditions to null. Then calculate path? depends on if forward or backward search
         count = 0
         return count
 
