@@ -220,7 +220,6 @@ class AirCargoProblem(Problem):
         conditions by ignoring the preconditions required for an action to be
         executed.
         """
-        # TODO implement (see Russell-Norvig Ed-3 10.2.3  or Russell-Norvig Ed-2 11.2)
         # set all Node's action preconditions to null. Then calculate path? depends on if forward or backward search
         count = 0
         kb = PropKB()
@@ -292,7 +291,7 @@ def air_cargo_p2() -> AirCargoProblem:
     init = FluentState(pos, neg)
     goal = [expr('At(C1, JFK)'),
             expr('At(C2, SFO)'),
-            expr('At(C3, ATL)'),
+            expr('At(C3, SFO)'),
             ]
     return AirCargoProblem(cargos, planes, airports, init, goal)
 
