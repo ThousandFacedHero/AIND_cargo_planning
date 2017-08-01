@@ -511,6 +511,7 @@ class PlanningGraph:
         :param node_s2: PgNode_s
         :return: bool
         """
+        # must check parents here instead of preconditions, because of the way the problem is set up.
         for n1parent in node_s1.parents:
             for n2parent in node_s2.parents:
                 if (not n1parent.is_mutex(n2parent)) & (not n2parent.is_mutex(n1parent)):
@@ -526,6 +527,7 @@ class PlanningGraph:
         level_sum = 0
         for goal in self.problem.goal:
             goal_found = False
+            # start at negative 1 because of 0 indexing
             level_cost = -1
             for level in self.s_levels:
                 level_cost += 1
